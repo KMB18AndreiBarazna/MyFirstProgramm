@@ -1,0 +1,14 @@
+.img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+.btnF {
+    font-size: 14px;
+}
+.btnUnF {
+    font-size: 10px;
+}
+.selectedPage {
+    font-size: x-large;
+}

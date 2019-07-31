@@ -1,0 +1,41 @@
+
+.dialogs {
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.dialog {
+    padding: 30px;
+}
+
+.item {
+    color: mistyrose;
+}
+
+.dialogsItems {
+    font-style: italic;
+    color: blue;
+    border: 1px solid red;
+}
+
+.messages {
+    border: 1px solid red;
+}
+
+.dialogUserInfo        {
+    display: flex;
+    margin: 10px;
+}
+
+.dialogMessageInfo        {
+    display: flex;
+    margin: 10px;
+}
+
+.img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}

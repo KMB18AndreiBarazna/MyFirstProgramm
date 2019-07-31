@@ -1,0 +1,23 @@
+.header {
+    grid-area: a;
+    background-color: aqua;
+}
+.img {
+    width: 200px;
+    height: 100px;
+    float: left;
+}
+.titul {
+text-align: center;
+font-style: italic;
+font-size: 70px;
+color: #ff8401;
+
+}
+.loginBlock {
+     float: right;
+ }
+.loginBlock a {
+    color: darkviolet;
+    font-size: larger;
+}
