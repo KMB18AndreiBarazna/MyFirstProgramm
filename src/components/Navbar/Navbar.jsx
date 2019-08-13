@@ -5,7 +5,6 @@ import FriendsContainer from "./FriendsContainer";
 import Users from "../Users/Users";
 
 const Navbar = () => {
-    //debugger;
     return (
         <div>
             <nav className={s.nav}>

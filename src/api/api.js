@@ -3,7 +3,7 @@ import * as axios from "axios";
 const instance= axios.create({
     withCredentials: true,
     baseURL:`https://social-network.samuraijs.com/api/1.0/`,
-    headers: {'API-KEY' : '7d1ad273-f86f-4ab7-ae41-2754638586ff'}
+    headers: {'API-KEY' : 'c95f7d37-af6b-481a-a11f-46f3324c1899'}
 });
 
 export const usersAPI={
@@ -47,3 +47,28 @@ export const authAPI={
         return instance.delete(`auth/login`)
     }
 };
+
+export const dialogsAPI= {
+    getDialogs() {
+        return  instance.get(`dialogs`)
+            .then(res=> {
+                return res.data
+            })
+    },
+    startDialog(userId) {
+        return instance.put(`dialogs/${userId}`)
+            .then(res=>res.data)
+    },
+    getMessages(userId) {
+        return instance.get(`dialogs/${userId}/messages`)
+            .then(res=> {
+                return res.data.items
+            })
+    },
+    sendMessage(userId, body) {
+        return instance.post(`dialogs/${userId}/messages`, {body})
+            .then(res=>res.data)
+    }
+};
+
+

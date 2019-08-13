@@ -21,3 +21,9 @@ color: #ff8401;
     color: darkviolet;
     font-size: larger;
 }
+.someError {
+    border: #13ff1a 1px solid;
+    padding: 5px;
+    color: red;
+}
+

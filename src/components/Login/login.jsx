@@ -5,6 +5,7 @@ import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {login} from "../../Redux/auth-reducer";
 import {Redirect} from "react-router-dom";
+import s from '../Header/Header.module.css'
 
 const Loginform= (props) => {
     return (
@@ -30,6 +31,9 @@ const Loginform= (props) => {
                          name={'rememberMe'}
                 /> remember me
             </div>
+            {props.error&&<div className={s.someError}>
+                {props.error}
+            </div>}
             <div>
                 <button>Login</button>
             </div>

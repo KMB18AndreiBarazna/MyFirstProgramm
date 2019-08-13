@@ -19,4 +19,4 @@ import {connect} from "react-redux";
 
 
 const MyPostsContainer=connect(mapStateToProps, mapDispatchToProps)(MyPosts);
- export default MyPostsContainer;
+export default MyPostsContainer;

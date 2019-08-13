@@ -2,7 +2,6 @@ import React from 'react';
 import Friend from "./Friend";
 
 const Friends = (props) => {
-       //debugger;
     let friends =props.friends.map( (item) => {
         return <Friend id={item.id} ava={item.ava} name={item.name}/>
     } );

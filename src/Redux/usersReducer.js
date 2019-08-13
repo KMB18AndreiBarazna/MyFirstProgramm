@@ -1,5 +1,4 @@
 import {usersAPI} from "../api/api";
-
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
@@ -10,7 +9,7 @@ const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 
 let initialState = {
     users: [],
-    pageSize: 5,
+    pageSize: 4,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: true,
@@ -76,7 +75,7 @@ export const toggleFollowingProgress = (isFetching, userId) => ({
     isFetching,
     userId
 });
-export default usersReducer;
+
 
 export const getUsers = (currentPage, pageSize) => {
     return (dispatch) => {
@@ -86,6 +85,7 @@ export const getUsers = (currentPage, pageSize) => {
                 dispatch(toggleIsFetching(false));
                 dispatch(setUsers(data.items));
                 dispatch(setTotalUsersCount(data.totalCount))
+                dispatch(setCurrentPage(currentPage))
             });
     }
 };
@@ -111,3 +111,4 @@ export const unfollow = (userId) => {
     }
 };
 
+export default usersReducer;

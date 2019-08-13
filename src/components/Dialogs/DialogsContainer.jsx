@@ -1,26 +1,37 @@
-import {addMessageActionCreator} from "../../Redux/dialogsReducer";
-import Dialogs from "./Dialogs";
+import React from 'react';
+import {updateDialog, init, sendMessage} from "../../Redux/dialogsReducer";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {withRouter} from "react-router-dom";
+import Dialogs from "./Dialogs";
 
-let mapStateToProps=(state)=> {
+class DialogsContainer extends React.Component {
+
+    componentDidMount() {
+        this.props.init(this.props.userId);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.userId !=this.props.userId) {
+        this.props.updateDialog(this.props.userId)
+        }
+    }
+    render() {
+        return (
+            <Dialogs {...this.props}/>
+        );
+    }
+};
+let mapStateToProps = (state, props) => {
     return {
-        dialogs: state.dialogsPage.dialogs,
-        messages: state.dialogsPage.messages,
-        newMessage: state.dialogsPage.newMessage
+        dialogs: state.dialogs.dialogs,
+        messages: state.dialogs.messages,
+        selectedDialogId: state.dialogs.selectedDialogId,
+        newMessage: state.newMessage,
+        userId: props.match.params.userId
     }
 };
 
-let mapDispatchToProps=(dispatch)=>{
-  return {
-      addMessage: (newMessageElement)=>{
-            dispatch(addMessageActionCreator(newMessageElement))
-      }
-  }
-};
-
-export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
-    withAuthRedirect)
-    (Dialogs);
+export default compose(withRouter, connect(mapStateToProps, {init, updateDialog, sendMessage}), withAuthRedirect)
+    (DialogsContainer);
