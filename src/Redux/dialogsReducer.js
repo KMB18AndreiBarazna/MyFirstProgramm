@@ -45,7 +45,7 @@ export const sendMessage = (userId, body) => async (dispatch) => {
     let result = await dialogsAPI.sendMessage(userId, body);
     if (result.resultCode===0) {
             dispatch(sendMessageSuccess(result.data.message))
-    } //else пишем месагу об ошибке =  ты с спаме и т. п.
+    } //else пишем месагу об ошибке =  ты в спаме и т. п.
 };
 
 export const getDialogs = () =>async (dispatch) => {
